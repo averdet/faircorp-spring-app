@@ -20,4 +20,11 @@ public class RoomDaoTest {
         Assertions.assertThat(room.getName()).isEqualTo("Room1");
         Assertions.assertThat(room.getCurrentTemperature()).isEqualTo(22.3);
     }
+
+    @Test
+    public void shouldFindARoomFromName() {
+        Room room = roomDao.findByName("Room1");
+        Assertions.assertThat(room.getName()).isEqualTo("Room1");
+        Assertions.assertThat(room.getCurrentTemperature()).isEqualTo(22.3);
+    }
 }
