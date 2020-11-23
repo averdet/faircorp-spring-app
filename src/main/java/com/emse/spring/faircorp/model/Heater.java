@@ -64,4 +64,12 @@ public class Heater {
     public void setRoom(Room room) {
         this.room = room;
     }
+
+    public HeaterStatus getHeaterStatus() {
+        return heaterStatus;
+    }
+
+    public void setHeaterStatus(HeaterStatus heaterStatus) {
+        this.heaterStatus = heaterStatus;
+    }
 }
