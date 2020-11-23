@@ -2,6 +2,7 @@ package com.emse.spring.faircorp.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "RROOM")
@@ -22,10 +23,10 @@ public class Room {
     private double targetTemperature;
 
     @OneToMany(mappedBy = "room")
-    private ArrayList<Heater> heaterList;
+    private List<Heater> heaterList;
 
     @OneToMany(mappedBy = "room")
-    private ArrayList<Window> windowList;
+    private List<Window> windowList;
 
     public Room() {
     }
@@ -75,19 +76,19 @@ public class Room {
         this.targetTemperature = targetTemperature;
     }
 
-    public ArrayList<Heater> getHeaterList() {
+    public List<Heater> getHeaterList() {
         return heaterList;
     }
 
-    public void setHeaterList(ArrayList<Heater> heaterList) {
+    public void setHeaterList(List<Heater> heaterList) {
         this.heaterList = heaterList;
     }
 
-    public ArrayList<Window> getWindowList() {
+    public List<Window> getWindowList() {
         return windowList;
     }
 
-    public void setWindowList(ArrayList<Window> windowList) {
+    public void setWindowList(List<Window> windowList) {
         this.windowList = windowList;
     }
 }

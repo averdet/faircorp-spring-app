@@ -13,7 +13,9 @@ public class FaircorpApplicationConfig {
         return new CommandLineRunner() {
             @Override
             public void run(String... args) throws Exception {
-                greetingService.greet(args[0]);
+                if (args.length > 0) {
+                    greetingService.greet(args[0]);
+                }
             }
         };
     }

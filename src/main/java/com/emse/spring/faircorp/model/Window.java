@@ -17,12 +17,10 @@ public class Window {
     @Enumerated(EnumType.STRING)
     private WindowStatus windowStatus;
 
-    @Column(nullable = false)
-    @ManyToOne
+    @ManyToOne(optional = false)
     private Room room;
 
-    public Window(Room room) {
-        this.room = room;
+    public Window() {
     }
 
     public Window(String name, WindowStatus status, Room room) {
