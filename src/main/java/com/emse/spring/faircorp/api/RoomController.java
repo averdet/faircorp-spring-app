@@ -3,7 +3,7 @@ package com.emse.spring.faircorp.api;
 import com.emse.spring.faircorp.dao.HeaterDao;
 import com.emse.spring.faircorp.dao.RoomDao;
 import com.emse.spring.faircorp.dao.WindowDao;
-import com.emse.spring.faircorp.model.Room;
+import com.emse.spring.faircorp.model.*;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -54,5 +54,29 @@ public class RoomController {
         windowDao.deleteAllWindowsFromRoom(room_id);
         heaterDao.deleteAllHeatersFromRoom(room_id);
         roomDao.deleteById(room_id);
+    }
+
+    @PutMapping(path = "/{room_id}/switchWindow")
+    public void switchWindowStatus(@PathVariable Long room_id) {
+//        Room room = roomDao.getOne(room_id);
+//        List<Window> windowList = room.getWindowList();
+        List<Window> windowList = windowDao.findByRoomId(room_id);
+
+        for (int i = 0; i < windowList.size(); i++) {
+            Window window= windowList.get(i);
+            window.setWindowStatus(window.getWindowStatus() == WindowStatus.OPEN ? WindowStatus.CLOSED: WindowStatus.OPEN);
+        }
+    }
+
+    @PutMapping(path = "/{room_id}/switchHeaters")
+    public void switchHeatersStatus(@PathVariable Long room_id) {
+//        Room room = roomDao.getOne(room_id);
+//        List<Heater> heaterList = room.getHeaterList();
+        List<Heater> heaterList = heaterDao.findByRoomId(room_id);
+
+        for (int i = 0; i < heaterList.size(); i++) {
+            Heater heater = heaterList.get(i);
+            heater.setHeaterStatus(heater.getHeaterStatus() == HeaterStatus.ON ? HeaterStatus.OFF: HeaterStatus.ON);
+        }
     }
 }
