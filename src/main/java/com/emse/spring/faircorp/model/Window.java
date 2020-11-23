@@ -22,6 +22,7 @@ public class Window {
     private Room room;
 
     public Window(Room room) {
+        this.room = room;
     }
 
     public Window(String name, WindowStatus status, Room room) {
