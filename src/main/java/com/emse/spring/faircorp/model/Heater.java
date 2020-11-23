@@ -8,13 +8,12 @@ public class Heater {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = true)
-    private long power;
+    private Long power;
 
     @Column(nullable = false) // (5)
     @Enumerated(EnumType.STRING)
@@ -26,18 +25,18 @@ public class Heater {
     public Heater() {
     }
 
-    public Heater(String name, long power, HeaterStatus heaterStatus, Room room) {
+    public Heater(String name, Long power, HeaterStatus heaterStatus, Room room) {
         this.name = name;
         this.power = power;
         this.heaterStatus = heaterStatus;
         this.room = room;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -49,11 +48,11 @@ public class Heater {
         this.name = name;
     }
 
-    public long getPower() {
+    public Long getPower() {
         return power;
     }
 
-    public void setPower(long power) {
+    public void setPower(Long power) {
         this.power = power;
     }
 
