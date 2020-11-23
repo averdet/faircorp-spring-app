@@ -39,4 +39,11 @@ class WindowDaoTest {
         List<Window> result = windowDao.findRoomOpenWindows(-10L);
         Assertions.assertThat(result).isEmpty();
     }
+
+    @Test
+    public void shouldDeleteAllWindowsFromRoom() {
+        windowDao.deleteAllWindowsFromRoom(-9L);
+        List<Window> result = windowDao.findByRoomId(-9L);
+        Assertions.assertThat(result).isEmpty();
+    }
 }
