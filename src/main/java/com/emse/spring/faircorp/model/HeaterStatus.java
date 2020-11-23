@@ -1,6 +1,6 @@
 package com.emse.spring.faircorp.model;
 
-enum HeaterStatus {
+public enum HeaterStatus {
     ON,
     OFF
 }

@@ -13,7 +13,7 @@ public class Heater {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private long power;
 
     @Column(nullable = false) // (5)
