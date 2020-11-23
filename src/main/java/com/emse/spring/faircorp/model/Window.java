@@ -26,6 +26,7 @@ public class Window {
     public Window(String name, WindowStatus status, Room room) {
         this.windowStatus = status;
         this.name = name;
+        this.room = room;
     }
 
     public Long getId() {
