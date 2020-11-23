@@ -2,7 +2,6 @@ package com.emse.spring.faircorp.api;
 
 import com.emse.spring.faircorp.model.Heater;
 import com.emse.spring.faircorp.model.HeaterStatus;
-import com.emse.spring.faircorp.model.Room;
 
 public class HeaterDto {
     private Long id;

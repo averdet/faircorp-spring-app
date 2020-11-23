@@ -1,7 +1,6 @@
 package com.emse.spring.faircorp.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -34,6 +33,22 @@ public class Room {
     public Room(Integer floor, String name) {
         this.floor = floor;
         this.name = name;
+    }
+
+    public Room(Integer floor, String name, Double currentTemperature, Double targetTemperature) {
+        this.floor = floor;
+        this.name = name;
+        this.currentTemperature = currentTemperature;
+        this.targetTemperature = targetTemperature;
+    }
+
+    public Room(Integer floor, String name, Double currentTemperature, Double targetTemperature, List<Heater> heaterList, List<Window> windowList) {
+        this.floor = floor;
+        this.name = name;
+        this.currentTemperature = currentTemperature;
+        this.targetTemperature = targetTemperature;
+        this.heaterList = heaterList;
+        this.windowList = windowList;
     }
 
     public Long getId() {
