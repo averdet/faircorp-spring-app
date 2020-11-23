@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.List;
+
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 public class HeaterDaoTest {
@@ -20,5 +22,12 @@ public class HeaterDaoTest {
         Heater heater = heaterDao.getOne(-10L);
         Assertions.assertThat(heater.getName()).isEqualTo("Heater1");
         Assertions.assertThat(heater.getHeaterStatus()).isEqualTo(HeaterStatus.ON);
+    }
+
+    @Test
+    public void shouldDeleteAllHeatersFromRoom() {
+        heaterDao.deleteAllHeatersFromRoom(-9L);
+        List<Heater> result = heaterDao.findByRoomId(-9L);
+        Assertions.assertThat(result).isEmpty();
     }
 }
