@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController // (1)
+@CrossOrigin
 @RequestMapping("/api/windows") // (2)
 @Transactional // (3)
 public class WindowController {
