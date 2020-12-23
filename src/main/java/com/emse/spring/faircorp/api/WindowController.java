@@ -18,11 +18,9 @@ import java.util.stream.Collectors;
 public class WindowController {
 
     private final WindowDao windowDao;
-    private final RoomDao roomDao;
 
     public WindowController(WindowDao windowDao, RoomDao roomDao) { // (4)
         this.windowDao = windowDao;
-        this.roomDao = roomDao;
     }
 
     @GetMapping // (5)
@@ -45,7 +43,7 @@ public class WindowController {
     @PostMapping // (8)
     public WindowDto create(@RequestBody WindowDto dto) {
         // WindowDto must always contain the window room
-        Room room = roomDao.getOne(dto.getRoomId());
+        Room room = dto.getRoom();
         Window window = null;
         // On creation id is not defined
         if (dto.getId() == null) {
