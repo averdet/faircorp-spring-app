@@ -1,5 +1,7 @@
 package com.emse.spring.faircorp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -21,11 +23,13 @@ public class Room {
 
     private Double targetTemperature;
 
-//    @OneToMany(mappedBy = "room")
-//    private List<Heater> heaterList;
-//
-//    @OneToMany(mappedBy = "room")
-//    private List<Window> windowList;
+    @OneToMany(mappedBy = "room")
+    @JsonIgnore
+    private List<Heater> heaterList;
+
+    @OneToMany(mappedBy = "room")
+    @JsonIgnore
+    private List<Window> windowList;
 
     public Room() {
     }
@@ -42,14 +46,14 @@ public class Room {
         this.targetTemperature = targetTemperature;
     }
 
-//    public Room(Integer floor, String name, Double currentTemperature, Double targetTemperature, List<Heater> heaterList, List<Window> windowList) {
-//        this.floor = floor;
-//        this.name = name;
-//        this.currentTemperature = currentTemperature;
-//        this.targetTemperature = targetTemperature;
-//        this.heaterList = heaterList;
-//        this.windowList = windowList;
-//    }
+    public Room(Integer floor, String name, Double currentTemperature, Double targetTemperature, List<Heater> heaterList, List<Window> windowList) {
+        this.floor = floor;
+        this.name = name;
+        this.currentTemperature = currentTemperature;
+        this.targetTemperature = targetTemperature;
+        this.heaterList = heaterList;
+        this.windowList = windowList;
+    }
 
     public Long getId() {
         return id;
@@ -91,19 +95,19 @@ public class Room {
         this.targetTemperature = targetTemperature;
     }
 
-//    public List<Heater> getHeaterList() {
-//        return heaterList;
-//    }
-//
-//    public void setHeaterList(List<Heater> heaterList) {
-//        this.heaterList = heaterList;
-//    }
-//
-//    public List<Window> getWindowList() {
-//        return windowList;
-//    }
-//
-//    public void setWindowList(List<Window> windowList) {
-//        this.windowList = windowList;
-//    }
+    public List<Heater> getHeaterList() {
+        return heaterList;
+    }
+
+    public void setHeaterList(List<Heater> heaterList) {
+        this.heaterList = heaterList;
+    }
+
+    public List<Window> getWindowList() {
+        return windowList;
+    }
+
+    public void setWindowList(List<Window> windowList) {
+        this.windowList = windowList;
+    }
 }

@@ -1,6 +1,10 @@
 package com.emse.spring.faircorp.api;
 
+import com.emse.spring.faircorp.model.Heater;
 import com.emse.spring.faircorp.model.Room;
+import com.emse.spring.faircorp.model.Window;
+
+import java.util.List;
 
 
 public class RoomDto {
@@ -9,6 +13,8 @@ public class RoomDto {
     private Integer floor;
     private Double currentTemperature;
     private Double targetTemperature;
+    private List<Window>  windowList;
+    private List<Heater> heaterList;
 
     public RoomDto() {
     }
@@ -19,6 +25,8 @@ public class RoomDto {
         this.floor = room.getFloor();
         this.currentTemperature = room.getCurrentTemperature();
         this.targetTemperature = room.getTargetTemperature();
+        this.windowList = room.getWindowList();
+        this.heaterList = room.getHeaterList();
     }
 
     public Long getId() {
@@ -61,4 +69,19 @@ public class RoomDto {
         this.targetTemperature = targetTemperature;
     }
 
+    public List<Window> getWindowList() {
+        return windowList;
+    }
+
+    public void setWindowList(List<Window> windowList) {
+        this.windowList = windowList;
+    }
+
+    public List<Heater> getHeaterList() {
+        return heaterList;
+    }
+
+    public void setHeaterList(List<Heater> heaterList) {
+        this.heaterList = heaterList;
+    }
 }
