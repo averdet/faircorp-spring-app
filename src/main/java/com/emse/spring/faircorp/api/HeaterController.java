@@ -61,4 +61,11 @@ public class HeaterController {
     public void delete(@PathVariable Long heater_id) {
         heaterDao.deleteById(heater_id);
     }
+
+    @PutMapping(path = "/{heater_id}/{power}")
+    public HeaterDto setPower(@PathVariable Long heater_id, Long power) {
+        Heater heater = heaterDao.findById(heater_id).orElseThrow(IllegalArgumentException::new);
+        heater.setPower(power);
+        return new HeaterDto(heater);
+    }
 }
