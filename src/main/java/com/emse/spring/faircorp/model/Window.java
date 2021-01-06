@@ -1,6 +1,8 @@
 package com.emse.spring.faircorp.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity // (1)
@@ -18,6 +20,7 @@ public class Window {
     private WindowStatus windowStatus;
 
     @ManyToOne(optional = false)
+    @JsonBackReference
     private Room room;
 
     public Window() {

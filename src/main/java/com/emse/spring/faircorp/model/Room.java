@@ -1,6 +1,9 @@
 package com.emse.spring.faircorp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.springframework.boot.autoconfigure.info.ProjectInfoProperties;
 
 import javax.persistence.*;
 import java.util.List;
@@ -24,12 +27,16 @@ public class Room {
     private Double targetTemperature;
 
     @OneToMany(mappedBy = "room")
-    @JsonIgnore
+    @JsonManagedReference
     private List<Heater> heaterList;
 
     @OneToMany(mappedBy = "room")
-    @JsonIgnore
+    @JsonManagedReference
     private List<Window> windowList;
+
+    @ManyToOne
+    @JsonBackReference
+    private Building building;
 
     public Room() {
     }
@@ -39,6 +46,12 @@ public class Room {
         this.name = name;
     }
 
+    public Room(Integer floor, String name, Building building) {
+        this.floor = floor;
+        this.name = name;
+        this.building = building;
+    }
+
     public Room(Integer floor, String name, Double currentTemperature, Double targetTemperature) {
         this.floor = floor;
         this.name = name;
@@ -46,13 +59,22 @@ public class Room {
         this.targetTemperature = targetTemperature;
     }
 
-    public Room(Integer floor, String name, Double currentTemperature, Double targetTemperature, List<Heater> heaterList, List<Window> windowList) {
+    public Room(Integer floor, String name, Double currentTemperature, Double targetTemperature, Building building) {
+        this.floor = floor;
+        this.name = name;
+        this.currentTemperature = currentTemperature;
+        this.targetTemperature = targetTemperature;
+        this.building = building;
+    }
+
+    public Room(Integer floor, String name, Double currentTemperature, Double targetTemperature, List<Heater> heaterList, List<Window> windowList, Building building) {
         this.floor = floor;
         this.name = name;
         this.currentTemperature = currentTemperature;
         this.targetTemperature = targetTemperature;
         this.heaterList = heaterList;
         this.windowList = windowList;
+        this.building = building;
     }
 
     public Long getId() {
@@ -109,5 +131,13 @@ public class Room {
 
     public void setWindowList(List<Window> windowList) {
         this.windowList = windowList;
+    }
+
+    public Building getBuilding() {
+        return building;
+    }
+
+    public void setBuilding(Building building) {
+        this.building = building;
     }
 }
