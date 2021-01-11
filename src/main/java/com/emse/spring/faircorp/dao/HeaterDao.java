@@ -15,4 +15,5 @@ public interface HeaterDao extends JpaRepository<Heater, Long> {
     void deleteAllHeatersFromRoom(@Param("roomId") Long roomId);
 
     List<Heater> findByRoomId(Long roomId);
+    List<Heater> findByRoomBuildingId(Long building);
 }

@@ -29,6 +29,16 @@ public class HeaterController {
         return heaterDao.findAll().stream().map(HeaterDto::new).collect(Collectors.toList());
     }
 
+    @GetMapping(path = "/room/{room_id}")
+    public List<HeaterDto> findByRoomId(@PathVariable Long room_id) {
+        return heaterDao.findByRoomId(room_id).stream().map(HeaterDto::new).collect(Collectors.toList());
+    }
+
+    @GetMapping(path = "/building/{building_id}")
+    public List<HeaterDto> findByRoomBuildingId(@PathVariable Long building_id) {
+        return heaterDao.findByRoomBuildingId(building_id).stream().map(HeaterDto::new).collect(Collectors.toList());
+    }
+
     @PostMapping // (8)
     public HeaterDto create(@RequestBody HeaterDto dto) {
         // WindowDto must always contain the window room

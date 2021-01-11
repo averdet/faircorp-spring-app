@@ -15,4 +15,5 @@ public interface WindowDao extends JpaRepository<Window, Long>, WindowDaoCustom 
     void deleteAllWindowsFromRoom(@Param("roomId") Long roomId);
 
     List<Window> findByRoomId(Long roomId);
+    List<Window> findByRoomBuildingId(Long buildingId);
 }
