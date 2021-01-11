@@ -32,10 +32,11 @@ public class RoomController {
 
     @PostMapping
     public RoomDto create(@RequestBody RoomDto dto) {
+        Building building = dto.getBuilding();
         Room room = null;
 
         if (dto.getId() == null) {
-            room = roomDao.save(new Room(dto.getFloor(), dto.getName(), dto.getCurrentTemperature(), dto.getTargetTemperature()));
+            room = roomDao.save(new Room(dto.getFloor(), dto.getName(), dto.getCurrentTemperature(), dto.getTargetTemperature(), building));
         }
         else {
             room = roomDao.getOne(dto.getId());

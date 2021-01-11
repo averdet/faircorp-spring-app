@@ -34,7 +34,7 @@ public class Room {
     @JsonManagedReference
     private List<Window> windowList;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JsonBackReference
     private Building building;
 
@@ -50,13 +50,6 @@ public class Room {
         this.floor = floor;
         this.name = name;
         this.building = building;
-    }
-
-    public Room(Integer floor, String name, Double currentTemperature, Double targetTemperature) {
-        this.floor = floor;
-        this.name = name;
-        this.currentTemperature = currentTemperature;
-        this.targetTemperature = targetTemperature;
     }
 
     public Room(Integer floor, String name, Double currentTemperature, Double targetTemperature, Building building) {
