@@ -63,7 +63,7 @@ public class RoomController {
     }
 
     @PutMapping(path = "/{room_id}/switchWindows")
-    public void switchWindowsStatus(@PathVariable Long room_id) {
+    public RoomDto switchWindowsStatus(@PathVariable Long room_id) {
 //        Room room = roomDao.getOne(room_id);
 //        List<Window> windowList = room.getWindowList();
         List<Window> windowList = windowDao.findByRoomId(room_id);
@@ -72,10 +72,11 @@ public class RoomController {
             Window window = windowList.get(i);
             window.setWindowStatus(window.getWindowStatus() == WindowStatus.OPEN ? WindowStatus.CLOSED : WindowStatus.OPEN);
         }
+        return roomDao.findById(room_id).map(RoomDto::new).orElse(null);
     }
 
     @PutMapping(path = "/{room_id}/switchHeaters")
-    public void switchHeatersStatus(@PathVariable Long room_id) {
+    public RoomDto switchHeatersStatus(@PathVariable Long room_id) {
 //        Room room = roomDao.getOne(room_id);
 //        List<Heater> heaterList = room.getHeaterList();
         List<Heater> heaterList = heaterDao.findByRoomId(room_id);
@@ -84,5 +85,6 @@ public class RoomController {
             Heater heater = heaterList.get(i);
             heater.setHeaterStatus(heater.getHeaterStatus() == HeaterStatus.ON ? HeaterStatus.OFF : HeaterStatus.ON);
         }
+        return roomDao.findById(room_id).map(RoomDto::new).orElse(null);
     }
 }
