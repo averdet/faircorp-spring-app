@@ -18,11 +18,11 @@ Clone the repo and run
 ./gradlew bootRun
 ```
 
-You can now access the backend on [localhost:8080](http://localhost:8080)
+You can now access the backend on [localhost:8080](http://localhost:8080) or on the [Deployed server](https://faircorp-alexandre-verdet.cleverapps.io/)
 
 ## Project API
 
-You can experiment with the API on [localhost:8080/swagger-ui/](http://localhost:8080/swagger-ui/)
+You can experiment with the API on [localhost:8080/swagger-ui/](http://localhost:8080/swagger-ui/) or on the [Deployed server](https://faircorp-alexandre-verdet.cleverapps.io/swagger-ui/)
 
 ### Buildings API
 
