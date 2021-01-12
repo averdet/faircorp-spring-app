@@ -11,12 +11,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(OutputCaptureExtension.class)
-@ExtendWith(SpringExtension.class) // (1)
+@ExtendWith(SpringExtension.class)
+        // (1)
 class DummyUserServiceTest {
 
     @Configuration // (2)
     @ComponentScan("com.emse.spring.faircorp.hello")
-    public static class DummyUserServiceTestConfig{}
+    public static class DummyUserServiceTestConfig {
+    }
 
     @Autowired // (3)
     public DummyUserService dummyUserService;

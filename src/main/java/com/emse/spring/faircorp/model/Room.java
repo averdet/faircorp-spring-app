@@ -1,9 +1,7 @@
 package com.emse.spring.faircorp.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import org.springframework.boot.autoconfigure.info.ProjectInfoProperties;
 
 import javax.persistence.*;
 import java.util.List;

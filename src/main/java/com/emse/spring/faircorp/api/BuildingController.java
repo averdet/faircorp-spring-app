@@ -23,7 +23,9 @@ public class BuildingController {
     }
 
     @GetMapping
-    public List<BuildingDto> findAll() { return buildingDao.findAll().stream().map(BuildingDto::new).collect(Collectors.toList()); }
+    public List<BuildingDto> findAll() {
+        return buildingDao.findAll().stream().map(BuildingDto::new).collect(Collectors.toList());
+    }
 
     @PostMapping
     public BuildingDto create(@RequestBody BuildingDto dto) {
@@ -31,8 +33,7 @@ public class BuildingController {
 
         if (dto.getId() == null) {
             building = buildingDao.save(new Building(dto.getId(), dto.getName(), dto.getRoomList()));
-        }
-        else {
+        } else {
             building = buildingDao.getOne(dto.getId());
             building.setName(dto.getName());
         }

@@ -7,14 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class DummyUserService implements UserService{
+public class DummyUserService implements UserService {
 
     private final ConsoleGreetingService greeter;
 
     @Autowired
-    public DummyUserService(ConsoleGreetingService greeter){
+    public DummyUserService(ConsoleGreetingService greeter) {
         this.greeter = greeter;
     }
+
     public void greetAll() {
         List<String> nameList = new ArrayList<String>();
         nameList.add("Elodie");

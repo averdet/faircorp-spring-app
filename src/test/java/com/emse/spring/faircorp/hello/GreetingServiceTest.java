@@ -6,7 +6,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.system.CapturedOutput;
 import org.springframework.boot.test.system.OutputCaptureExtension;
 
-@ExtendWith(OutputCaptureExtension.class) // (1)
+@ExtendWith(OutputCaptureExtension.class)
+        // (1)
 class GreetingServiceTest {
 
     @Test

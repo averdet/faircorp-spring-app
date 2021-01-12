@@ -37,8 +37,7 @@ public class RoomController {
 
         if (dto.getId() == null) {
             room = roomDao.save(new Room(dto.getFloor(), dto.getName(), dto.getCurrentTemperature(), dto.getTargetTemperature(), building));
-        }
-        else {
+        } else {
             room = roomDao.getOne(dto.getId());
             room.setCurrentTemperature(dto.getCurrentTemperature());
             room.setTargetTemperature(dto.getTargetTemperature());
@@ -70,8 +69,8 @@ public class RoomController {
         List<Window> windowList = windowDao.findByRoomId(room_id);
 
         for (int i = 0; i < windowList.size(); i++) {
-            Window window= windowList.get(i);
-            window.setWindowStatus(window.getWindowStatus() == WindowStatus.OPEN ? WindowStatus.CLOSED: WindowStatus.OPEN);
+            Window window = windowList.get(i);
+            window.setWindowStatus(window.getWindowStatus() == WindowStatus.OPEN ? WindowStatus.CLOSED : WindowStatus.OPEN);
         }
     }
 
@@ -83,7 +82,7 @@ public class RoomController {
 
         for (int i = 0; i < heaterList.size(); i++) {
             Heater heater = heaterList.get(i);
-            heater.setHeaterStatus(heater.getHeaterStatus() == HeaterStatus.ON ? HeaterStatus.OFF: HeaterStatus.ON);
+            heater.setHeaterStatus(heater.getHeaterStatus() == HeaterStatus.ON ? HeaterStatus.OFF : HeaterStatus.ON);
         }
     }
 }

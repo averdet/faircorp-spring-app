@@ -14,7 +14,7 @@ public class RoomDto {
     private Integer floor;
     private Double currentTemperature;
     private Double targetTemperature;
-    private List<Window>  windowList;
+    private List<Window> windowList;
     private List<Heater> heaterList;
     private Building building;
 
