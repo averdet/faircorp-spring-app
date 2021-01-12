@@ -38,7 +38,7 @@ You can experiment with the API on [localhost:8080/swagger-ui/](http://localhost
 - GET `/api/rooms/{room_id}` findById
 - DELETE `/api/rooms/{room_id}` delete
 - PUT `/api/rooms/{room_id}/switchHeaters` switchHeatersStatus
-- PUT `/api/rooms/{room_id}/switchWindow` switchWindowStatus
+- PUT `/api/rooms/{room_id}/switchWindows` switchWindowsStatus
 
 ### Windows API
 

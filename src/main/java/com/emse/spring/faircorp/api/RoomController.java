@@ -62,8 +62,8 @@ public class RoomController {
         roomDao.deleteById(room_id);
     }
 
-    @PutMapping(path = "/{room_id}/switchWindow")
-    public void switchWindowStatus(@PathVariable Long room_id) {
+    @PutMapping(path = "/{room_id}/switchWindows")
+    public void switchWindowsStatus(@PathVariable Long room_id) {
 //        Room room = roomDao.getOne(room_id);
 //        List<Window> windowList = room.getWindowList();
         List<Window> windowList = windowDao.findByRoomId(room_id);
